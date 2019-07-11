@@ -22,7 +22,7 @@ var gulp =  require('gulp'), // Gulp
 
 /********************* Editable : Project Properties *********************/
 var CompanyName = 'MyCompany', // First letter capitalized or all uppercase
-    BrandShorthand = 'MC', // All uppercase Ex : Takeda = MC 
+    BrandShorthand = 'MC', // All uppercase Ex : Cakediki = MC 
     JobNum = '100001', // Job number
     ProductName = 'My_Product' // First letter capitalized, Use underscore instead of space
     Extention = 'Extention_Name',
@@ -218,7 +218,7 @@ path.srcjs + '/app.js']; // app.js should be last
 
             console.log('Copy Assets : ' + slideName + ' slide'+i);
 
-            // Page Spesific                        
+            // Page Spesific
             gulp.src(path.srcassets + '/img/slide'+i+'/*').pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/img/slide'+i)) // Images
             gulp.src(path.srcassets + '/video/slide'+i+'/*').pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/video/slide'+i))  // Videos
         }
@@ -235,7 +235,7 @@ path.srcjs + '/app.js']; // app.js should be last
             fonttask = fonttask.pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/fonts')) // Shared Fonts
             imagetask = imagetask.pipe(imagemin()).pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/img')) // Shared Images
 
-            // Page Spesific                        
+            // Page Spesific
             gulp.src(path.srcassets + '/img/slide'+i+'/*').pipe(imagemin()).pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/img/slide'+i)) // Images
             gulp.src(path.srcassets + '/video/slide'+i+'/*').pipe(gulp.dest(path.buildassets.replace('{slide}',slideName)+'/video/slide'+i))  // Videos
         }
@@ -314,7 +314,7 @@ path.srcjs + '/app.js']; // app.js should be last
     gulp.task('build-hidden-optimize', gulpsync.sync(['hidden-clean','hidden-createfolders','hidden-compilejs','hidden-sass','hidden-assets-optimize','hidden-webshot','hidden-full','hidden-thumb','hidden-delete-webshot','hidden-shell-zip']));
 
     // **** Clean Folder
-    gulp.task('hidden-clean', function () {  
+    gulp.task('hidden-clean', function () {
         var tmpPaths = [];
         for (var i = 0; i < HiddenPresentations.length; i++) {
             tmpPaths.push(path.buildbaseHidden.replace('{1}',HiddenPresentations[i][0]));
@@ -415,12 +415,12 @@ path.srcjs + '/app.js']; // app.js should be last
                 var targetPath = path.buildassetsHidden.replace('{slide}',tmpHiddenSlideName).replace('{1}',name);
 
                 // Shared
-                fonttask = fonttask.pipe(gulp.dest(targetPath+'/fonts')) // Shared Fonts 
+                fonttask = fonttask.pipe(gulp.dest(targetPath+'/fonts')) // Shared Fonts
                 imagetask = imagetask.pipe(gulp.dest(targetPath+'/img')) // Shared Images
 
                 console.log('Copy Hidden Assets from : ' + path.srcassets + '/img/'+ name +'_slide'+s+'/* to : ' + targetPath+'/img/'+ name +'slide'+s);
 
-                // Page Spesific                        
+                // Page Spesific
                 gulp.src(path.srcassets + '/img/'+ name +'_slide'+s+'/*').pipe(gulp.dest(targetPath+'/img/'+ name +'_slide'+s)) // Images
                 gulp.src(path.srcassets + '/video/'+ name +'_slide'+s+'/*').pipe(gulp.dest(targetPath+'/video/'+ name +'_slide'+s))  // Videos
             }
@@ -445,10 +445,10 @@ path.srcjs + '/app.js']; // app.js should be last
                 var targetPath = path.buildassetsHidden.replace('{slide}',tmpHiddenSlideName).replace('{1}',name);
 
                 // Shared
-                fonttask = fonttask.pipe(gulp.dest(targetPath+'/fonts')) // Shared Fonts 
+                fonttask = fonttask.pipe(gulp.dest(targetPath+'/fonts')) // Shared Fonts
                 imagetask = imagetask.pipe(imagemin()).pipe(gulp.dest(targetPath+'/img')) // Shared Images
 
-                // Page Spesific                        
+                // Page Spesific
                 gulp.src(path.srcassets + '/img/'+ name +'_slide'+s+'/*').pipe(imagemin()).pipe(gulp.dest(targetPath+'/img/'+ name +'_slide'+s)) // Images
                 gulp.src(path.srcassets + '/video/'+ name +'_slide'+s+'/*').pipe(gulp.dest(targetPath+'/video/'+ name +'_slide'+s))  // Videos
             }
@@ -531,4 +531,3 @@ path.srcjs + '/app.js']; // app.js should be last
 
     //*** OTHER COMMANDS -----------------------------------------------------------------------------------------
     gulp.task('clean', gulpsync.sync(['debug-clean','build-clean','hidden-clean']));
-
