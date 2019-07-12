@@ -22,13 +22,13 @@ var gulp =  require('gulp'), // Gulp
 
 /********************* Editable : Project Properties *********************/
 var CompanyName = 'MyCompany', // First letter capitalized or all uppercase
-    BrandShorthand = 'MC', // All uppercase Ex : Cakediki = MC 
+    BrandShorthand = 'MC', // All uppercase Ex : Cakediki = MC
     JobNum = '100001', // Job number
     ProductName = 'My_Product' // First letter capitalized, Use underscore instead of space
     Extention = 'Extention_Name',
     Version = '1'; // Version of presentation
-    SlideCount = 2, // Slidecount should be equal to HTML slide you created in root folder. and it must start from 1 to total slide count.
-    Year = 2016;
+    SlideCount = 6, // Slidecount should be equal to HTML slide you created in root folder. and it must start from 1 to total slide count.
+    Year = 2019;
 
 // Hidden Presentations [PresentationName, SlideCount]
 var HiddenPresentations = [
