@@ -1,5 +1,5 @@
 // ---------------------------  GULP -----------------------------------
-// After compile, Gulp will add global variables below in to the compiled script; 
+// After compile, Gulp will add global variables below in to the compiled script;
 //
 // * Main
 // presentationName [ Ex : BrandShorthand_JobNum_ProductName_Extention ]
@@ -257,21 +257,22 @@ function initLinks(){
 		}
 	});
 }
-// Redirect user slide page or slide 
+// Redirect user slide page or slide
 function goToSlide(slideNumber,presentation){
 	if (production) {
 		if(presentation === ''){
 			com.veeva.clm.gotoSlide(tmpSlideName.replace('{0}', slideNumber)+'.zip', presentationName);
-		}else{ 
+		}else{
 			com.veeva.clm.gotoSlide(hiddenPageName.replace('{0}', slideNumber).replace('{1}', presentation)+'.zip', hiddenPresentationName.replace('{1}', presentation));
 		}
 	}else{
 		if(presentation === ''){
 			window.location.href = 'slide'+slideNumber+'.html';
-		}else{ 
+		}else{
 			window.location.href = presentation + '_slide'+slideNumber+'.html';
 		}
 	}
+	console.log((slideNumber)+'.zip ' + presentationName);
 	return false;
 }
 
@@ -295,5 +296,5 @@ function initSlider(id){
 	function initscroll(){
 		var tmpscroll = new IScroll('#'+id);
 	};
-	setTimeout(initscroll, 1000);	
+	setTimeout(initscroll, 1000);
 }
